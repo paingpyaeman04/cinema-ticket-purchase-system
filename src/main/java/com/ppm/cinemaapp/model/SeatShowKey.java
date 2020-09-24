@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Embeddable
 public class SeatShowKey implements Serializable {
@@ -16,16 +18,17 @@ public class SeatShowKey implements Serializable {
 	@Column(name = "id", nullable = false)
 	private Integer id;
 
-	@Column(name = "show_id", nullable = false)
-	private Integer showId;
+	@OneToOne
+	@JoinColumn(name = "show_id")
+	private ShowInfo show;
 
 	public SeatShowKey() {
 	}
 
-	public SeatShowKey(Integer id, Integer showId) {
+	public SeatShowKey(Integer id, ShowInfo show) {
 		super();
 		this.id = id;
-		this.showId = showId;
+		this.show = show;
 	}
 
 	public Integer getId() {
@@ -36,12 +39,12 @@ public class SeatShowKey implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getShowId() {
-		return showId;
+	public ShowInfo getShow() {
+		return show;
 	}
 
-	public void setShowId(Integer showId) {
-		this.showId = showId;
+	public void setShow(ShowInfo show) {
+		this.show = show;
 	}
 
 }

@@ -29,7 +29,7 @@ public class SeatServiceImpl implements SeatService {
 
 	@Override
 	public Seat updateSeat(Seat seat) {
-		SeatShowKey key = new SeatShowKey(seat.getKey().getId(), seat.getKey().getShowId());
+		SeatShowKey key = new SeatShowKey(seat.getKey().getId(), seat.getKey().getShow());
 		return this.seatRepository.getOne(key);
 	}
 
