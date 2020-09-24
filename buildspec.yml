@@ -8,7 +8,7 @@ phases:
     commands:
       - echo "build started"
       - echo "building cinema-app"
-      - mvn package -Dspring.datasource.url=$DB_URL -Dspring.datasource.username=$DB_USERNAME -Dspring.datasource.password=$DB_PASSWORD
+      - mvn package -Dspring-boot.run.arguments="--spring.datasource.url=$DB_URL --spring.datasource.username=$DB_USERNAME --spring.datasource.password=$DB_PASSWORD"
   post_build:
     commands:
       - echo "Post-build phase"
