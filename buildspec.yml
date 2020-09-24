@@ -3,11 +3,12 @@ version: 0.2
 phases: 
   pre_build:
     commands: 
-      - echo "Pre-build phase"
+      - echo "pre-build phase started"
   build:
     commands:
-      - echo "Building the application"
-      - mvn package
+      - echo "build started"
+      - echo "building cinema-app"
+      - mvn package -Dspring.datasource.url=$DB_URL -Dspring.datasource.username=$DB_USERNAME -Dspring.datasource.password=$DB_PASSWORD
   post_build:
     commands:
       - echo "Post-build phase"
